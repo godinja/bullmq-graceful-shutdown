@@ -1,0 +1,12 @@
+{
+  "name": "bullmq-graceful-shutdown",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jake Godin <jake.godin@qlik.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.8.6",
+    "bullmq": "^4.12.4",
+    "typescript": "^5.2.2"
+  }
+}
