@@ -7,6 +7,10 @@ worker.on("active", (job) => {
   console.log(`job ${job.id} has started...`);
 });
 
+worker.on("completed", (job) => {
+  console.log(`job ${job.id} has completed...`);
+});
+
 worker.on("failed", (job, error) => {
   console.log(`job ${job?.id} has failed: ${error}`);
 });
