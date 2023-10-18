@@ -14,9 +14,11 @@ spec:
       labels:
         app: bullmq
     spec:
+      terminationGracePeriodSeconds: 60
       containers:
         - name: bullmq
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: Never
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env: {{- include "bullmq-graceful-shutdown.envs" . | indent 12 }}
           ports:
             - containerPort: 80

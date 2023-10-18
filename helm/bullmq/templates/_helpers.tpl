@@ -60,3 +60,13 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+App envs
+*/}}
+{{- define "bullmq-graceful-shutdown.envs" -}}
+{{- range $key, $val := .Values.env }}
+- name: {{ $key | snakecase | upper }}
+  value: {{ $val | toString | quote }}
+{{- end}}
+{{- end }}

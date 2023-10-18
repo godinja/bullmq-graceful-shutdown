@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: bullmq-graceful-shutdown
+  repository: bullmq
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  tag: v2
 
 imagePullSecrets: []
 nameOverride: ""
@@ -83,3 +83,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+redis:
+  auth:
+    enabled: false
+
+env:
+  REDIS_HOST: "bullmq-redis-master"
