@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bullmq
+  name: bullmq-graceful-shutdown
   labels:
-    app: bullmq
+    app: bullmq-graceful-shutdown
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bullmq
+      app: bullmq-graceful-shutdown
   template:
     metadata:
       labels:
-        app: bullmq
+        app: bullmq-graceful-shutdown
     spec:
       terminationGracePeriodSeconds: 3000
       containers:
-        - name: bullmq
+        - name: bullmq-graceful-shutdown
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env: {{- include "bullmq-graceful-shutdown.envs" . | indent 12 }}
