@@ -19,6 +19,10 @@ worker.on("failed", (job, error) => {
   console.log(`job ${job?.id} has failed: ${error}`);
 });
 
+worker.on("error", (error) => {
+  console.error(`worker error ${error}`);
+});
+
 process.on("SIGTERM", async () => {
   console.log("process interrupted");
 
