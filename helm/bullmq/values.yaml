@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: bullmq
+  repository: bullmq-graceful-shutdown
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v2
+  tag: latest
 
 imagePullSecrets: []
 nameOverride: ""

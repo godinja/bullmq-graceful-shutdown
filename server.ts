@@ -1,14 +1,11 @@
-import { worker, worker2 } from "./worker";
-import { Worker } from "bullmq";
+import { worker, } from "./worker";
 
 console.log("worker process has started...");
 
-const workers = [worker, worker2];
+const workers = [worker];
 
 worker.run();
 console.log("started worker 1");
-worker2.run();
-console.log("started worker 2");
 
 worker.on("active", (job) => {
   console.log(`job ${job.id} has started...`);
@@ -22,16 +19,16 @@ worker.on("failed", (job, error) => {
   console.log(`job ${job?.id} has failed: ${error}`);
 });
 
-const closeWorker = async (worker: Worker) => {
-  console.log(`closing worker ${worker.name}`);
-  await worker.close();
-};
-
-process.on("SIGINT", async () => {
+process.on("SIGTERM", async () => {
   console.log("process interrupted");
 
-  await Promise.all(workers.map(closeWorker));
-
-  console.log("closed workers");
-  process.exit(0);
+  await Promise.allSettled(
+    workers.map((worker) => {
+      console.log(`Closing worker ${worker.name}`);
+      return worker.close();
+    })
+  ).finally(() => {
+    console.log('Closed all workers. Exiting process...');
+    process.exit(0);
+  });
 });

@@ -14,7 +14,7 @@ spec:
       labels:
         app: bullmq
     spec:
-      terminationGracePeriodSeconds: 60
+      terminationGracePeriodSeconds: 3000
       containers:
         - name: bullmq
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
