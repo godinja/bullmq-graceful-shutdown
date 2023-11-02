@@ -4,6 +4,12 @@
   "main": "index.js",
   "author": "Jake Godin <jake.godin@qlik.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "add-job": "node build/add-job.js",
+    "kill": "./kill-process.sh"
+  },
   "dependencies": {
     "@types/node": "^20.8.6",
     "bullmq": "^4.12.4",

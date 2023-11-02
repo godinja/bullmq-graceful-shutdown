@@ -5,7 +5,6 @@ export const worker = new Worker(
   "test",
   processor,
   {
-    autorun: false,
-    connection: { host: process.env.REDIS_HOST, port: 6379 },
+    connection: { host: process.env.REDIS_HOST ?? 'localhost', port: 6379 },
   }
 );
