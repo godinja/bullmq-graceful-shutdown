@@ -1,3 +1,5 @@
+**NOTE: This bug is no longer present in v4.12.8**
+
 # BullMQ Graceful Shutdown
 
 This repo contains a minimal producible example demonstrating some weird behavior related to job locks and graceful shutdown of workers.

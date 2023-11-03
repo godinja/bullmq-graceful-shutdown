@@ -56,10 +56,10 @@ brace-expansion@^2.0.1:
   dependencies:
     balanced-match "^1.0.0"
 
-bullmq@^4.12.4:
-  version "4.12.4"
-  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-4.12.4.tgz#cc1e1d52d084ec34b3b2f8370d56eee4343e4116"
-  integrity sha512-t+vMfvc2gVZUZWXd0jMh3vr5K83ZEfwwaiLW2HlL+W76ktWzOpwDqkWHmLwu98xylpPI1YcZ2WoGcqG6RsnKiA==
+bullmq@4.12.8:
+  version "4.12.8"
+  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-4.12.8.tgz#8814d51c70d7ae956e2fb423d0d26abd2f033992"
+  integrity sha512-aG9o2/y6P+SvsIlIfjTP4Cn2wOsD6r7IplWBovi1wCmTMDBhtKsPVCC2ZKezaagtTCGtV6IN5Bx5g6WrtMUz0Q==
   dependencies:
     cron-parser "^4.6.0"
     glob "^8.0.3"
